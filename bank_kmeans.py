@@ -9,7 +9,7 @@ model = joblib.load('bank_kmeans.pkl')
 
 
 # dataframe
-df = pd.read_csv("bank_full.csv", sep=";")
+df = pd.read_csv("bank.csv", sep=";")
 cols = ['poutcome', 'pdays', 'contact', 'previous', 'month', 'education']
 df_raw = df[cols]
 
@@ -81,4 +81,5 @@ st.pyplot(fig)
 
 # summary
 if st.checkbox("Show cluster data summary"):
+
     st.write(cluster_df.describe(include='all'))
