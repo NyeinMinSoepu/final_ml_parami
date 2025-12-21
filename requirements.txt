@@ -1,11 +1,12 @@
 streamlit
 pandas
-numpy<2.0.0
+numpy
 joblib
 scikit-learn
 imbalanced-learn
 matplotlib
 seaborn
+
 
 
 
