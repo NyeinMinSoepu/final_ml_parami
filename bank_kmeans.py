@@ -34,7 +34,7 @@ def user_input_features():
     month = st.sidebar.selectbox("Month", df_raw['month'].unique())
     education = st.sidebar.selectbox("Education", df_raw['education'].unique())
     pdays = st.sidebar.slider("Pdays", int(df_raw['pdays'].min()), int(df_raw['pdays'].max()), 0)
-    previous = st.sidebar.number_input("Previous", min_value=0, value=0)
+    previous = st.sidebar.slider("Previous", int(df_raw['previous'].min()), int(df_raw['previous'].max()), 0)
     
     data = {
         'poutcome': poutcome,
@@ -82,4 +82,5 @@ st.pyplot(fig)
 if st.checkbox("Show cluster data summary"):
 
     st.write(cluster_df.describe(include='all'))
+
 
