@@ -19,7 +19,7 @@ logo = "parami.jpg"
 st.sidebar.image(logo, use_container_width=True)
 st.sidebar.markdown("""
 # Introduction to Machine Learning
-**Nyein Min Soe**
+# Nyein Min Soe
 **Student ID:** PIUS20230027
 **Email:** nyeinminsoe@parami.edu.mm
 """)
@@ -82,5 +82,6 @@ st.pyplot(fig)
 if st.checkbox("Show cluster data summary"):
 
     st.write(cluster_df.describe(include='all'))
+
 
 
