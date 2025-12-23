@@ -59,8 +59,6 @@ with col2:
 st.subheader("Cluster Distribution Plot")
 cluster_df = df_clustered[df_clustered['cluster'] == selected_cluster]
 
-# tick
-show_full_data = st.checkbox("Show other clusters in background", value=True)
 
 plot_cols = [c for c in df.columns if c != 'cluster']
 x_axis = st.selectbox("Select X-axis", plot_cols, index=0)
@@ -98,6 +96,7 @@ sns.scatterplot(
 plt.title(f"Cluster {selected_cluster}: {x_axis} vs {y_axis}")
 plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left') 
 st.pyplot(fig)
+
 
 
 
