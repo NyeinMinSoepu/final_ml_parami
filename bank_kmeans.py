@@ -4,6 +4,15 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import joblib
 
+logo = "parami.jpg"
+st.sidebar.image(logo, use_container_width=True)
+st.sidebar.markdown("""
+# Introduction to Machine Learning
+# Nyein Min Soe
+**Student ID:** PIUS20230027
+**Email:** nyeinminsoe@parami.edu.mm
+""")
+
 # model
 model = joblib.load('bank_kmeans.pkl')
 
@@ -17,13 +26,14 @@ df_raw = df[cols]
 # personal information
 logo = "parami.jpg"
 st.sidebar.image(logo, use_container_width=True)
-st.sidebar.markdown("""
-# Introduction to Machine Learning
-# Nyein Min Soe
-**Student ID:** PIUS20230027
-**Email:** nyeinminsoe@parami.edu.mm
-""")
-
+st.sidebar.markdown(
+    """
+    **Introduction to Machine Learning**\n
+    **Nyein Min Soe**
+    **Student ID:** PIUS20230027  
+    **Email:** nyeinminsoe@parami.edu.mm
+    """
+)
 
 
 # input
@@ -80,8 +90,5 @@ st.pyplot(fig)
 
 # summary
 if st.checkbox("Show cluster data summary"):
-
     st.write(cluster_df.describe(include='all'))
-
-
 
