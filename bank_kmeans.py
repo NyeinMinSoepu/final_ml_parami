@@ -10,8 +10,8 @@ st.sidebar.image(logo, use_container_width=True)
 st.sidebar.markdown("""
 Introduction to Machine Learning\n
 Nyein Min Soe\n
-PIUS20230027\n
-nyeinminsoe@parami.edu.mm
+Student ID: PIUS20230027\n
+email: nyeinminsoe@parami.edu.mm
 """)
 
 model = joblib.load('bank_kmeans.pkl')
@@ -119,6 +119,7 @@ sns.scatterplot(
 plt.title(f"Cluster {selected_cluster}: {x_axis} vs {y_axis}")
 plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left') 
 st.pyplot(fig)
+
 
 
 
