@@ -75,7 +75,7 @@ sns.scatterplot(
     data=df_clustered, 
     x=x_axis, 
     y=y_axis, 
-    color='green', 
+    color='lightblue', 
     alpha=0.3, 
     ax=ax, 
     label='Other Clusters'
@@ -98,6 +98,7 @@ sns.scatterplot(
 plt.title(f"Cluster {selected_cluster}: {x_axis} vs {y_axis}")
 plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left') 
 st.pyplot(fig)
+
 
 
 
