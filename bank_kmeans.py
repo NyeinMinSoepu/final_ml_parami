@@ -41,14 +41,14 @@ col1, col2 = st.columns(2)
 
 
 with col1:
-    st.subheader("Categorical Variables")
+    st.subheader("Categorical Columns")
     # Show categorical modes for the selected cluster
     cluster_modes = df_clustered[df_clustered['cluster'] == selected_cluster].select_dtypes(include='object').mode().T
     cluster_modes.columns = ['Most Frequent Value']
     st.table(cluster_modes)
 
 with col2:
-    st.subheader("Numeric Variables")
+    st.subheader("Numeric Columns")
     # Show numerical averages for the selected cluster
     cluster_avgs = df_clustered[df_clustered['cluster'] == selected_cluster].select_dtypes(include='int').drop(columns='cluster', axis=1).mean().T.to_frame()
     cluster_avgs.columns = ['Mean Value']
@@ -96,6 +96,7 @@ sns.scatterplot(
 plt.title(f"Cluster {selected_cluster}: {x_axis} vs {y_axis}")
 plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left') 
 st.pyplot(fig)
+
 
 
 
