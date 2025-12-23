@@ -37,7 +37,8 @@ selected_cluster = st.sidebar.selectbox("Select a Cluster to Inspect", sorted(df
 st.metric("Total Customers in Cluster", len(df_clustered[df_clustered['cluster'] == selected_cluster]))
 
 cluster_count = len(df_clustered[df_clustered['cluster'] ==selected_cluster])
-st.metric("Percentage of Dataset", cluster_count * 100 / len(df_clustered))
+cluster_per = cluster_count * 100 / len(df_clustered)
+st.metric("Cluster comprises", f"{cluster_per:.2f}%", "of the dataset.")
 
 # Cluster Profile
 col1, col2 = st.columns(2)
@@ -99,6 +100,7 @@ sns.scatterplot(
 plt.title(f"Cluster {selected_cluster}: {x_axis} vs {y_axis}")
 plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left') 
 st.pyplot(fig)
+
 
 
 
