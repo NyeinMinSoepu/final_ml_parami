@@ -8,9 +8,9 @@ import joblib
 logo = "parami.jpg"
 st.sidebar.image(logo, use_container_width=True)
 st.sidebar.markdown("""
-Introduction to Machine Learning
-Nyein Min Soe
-PIUS20230027
+Introduction to Machine Learning\n
+Nyein Min Soe\n
+PIUS20230027\n
 nyeinminsoe@parami.edu.mm
 """)
 
@@ -119,6 +119,7 @@ sns.scatterplot(
 plt.title(f"Cluster {selected_cluster}: {x_axis} vs {y_axis}")
 plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left') 
 st.pyplot(fig)
+
 
 
 
