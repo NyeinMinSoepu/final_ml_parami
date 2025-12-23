@@ -50,7 +50,7 @@ with col1:
 with col2:
     st.subheader("Numerical Averages")
     # Show numerical averages for the selected cluster
-    cluster_avgs = df_clustered[df_clustered['cluster'] == selected_cluster].select_dtypes(include='number').drop(columns='cluster').mean().T
+    cluster_avgs = df_clustered[df_clustered['cluster'] == selected_cluster].select_dtypes(include='int').mean().T
     cluster_avgs.columns = ['Average Value']
     st.table(cluster_avgs)
 
@@ -98,3 +98,4 @@ sns.scatterplot(
 plt.title(f"Cluster {selected_cluster}: {x_axis} vs {y_axis}")
 plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left') 
 st.pyplot(fig)
+
