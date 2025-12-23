@@ -19,26 +19,36 @@ df_clustered['cluster'] = labels
 num_cols = df.select_dtypes(include=['int64']).columns.tolist()
 cat_cols = df.select_dtypes(include=['object']).columns.tolist()
 
+
 # calculate mean and mode
 summary = df_clustered.groupby('cluster').agg({
         **{col: 'mean' for col in num_cols},
         **{col: lambda x: x.mode()[0] if not x.mode().empty else "N/A" for col in cat_cols}
     }).reset_index()
 
+
 # title
 st.title("Cluster Details Dashboard")
 st.markdown("Detailed breakdown of clusters resulted from the model.")
+
 
 # Select Cluster
 st.sidebar.header("Filter Options")
 selected_cluster = st.sidebar.selectbox("Select a Cluster to Inspect", sorted(df_clustered['cluster'].unique()))
 
+
 # cluster info
-st.metric("Customers", f"{len(df_clustered[df_clustered['cluster'] == selected_cluster])}")
+m_col1, m_col2 = st.columns(2)
 
 cluster_count = len(df_clustered[df_clustered['cluster'] ==selected_cluster])
 cluster_per = cluster_count * 100 / len(df_clustered)
-st.metric("Dataset Coverage", f"{cluster_per:.2f}%")
+
+with m_col1:
+    st.metric("Customers", f"{len(df_clustered[df_clustered['cluster'] == selected_cluster])}")
+
+with m_col2:
+    st.metric("Dataset Coverage", f"{cluster_per:.2f}%")
+
 
 # Cluster Profile
 col1, col2 = st.columns(2)
@@ -100,6 +110,7 @@ sns.scatterplot(
 plt.title(f"Cluster {selected_cluster}: {x_axis} vs {y_axis}")
 plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left') 
 st.pyplot(fig)
+
 
 
 
