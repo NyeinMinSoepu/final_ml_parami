@@ -62,7 +62,7 @@ cluster_df = df_clustered[df_clustered['cluster'] == selected_cluster]
 
 plot_cols = [c for c in df.columns if c != 'cluster']
 x_axis = st.selectbox("Select X-axis", plot_cols, index=0)
-y_axis = st.selectbox("Select Y-axis", plot_cols, index=2)
+y_axis = st.selectbox("Select Y-axis", plot_cols, index=3)
 
 
 
@@ -96,6 +96,7 @@ sns.scatterplot(
 plt.title(f"Cluster {selected_cluster}: {x_axis} vs {y_axis}")
 plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left') 
 st.pyplot(fig)
+
 
 
 
